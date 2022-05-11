@@ -9,9 +9,10 @@ pipeline {
         stage ('Read file') {
             when {
                 branch "release"
-            }
-        }    steps {
+            }    
+            steps {
             sh 'cat README.md'
+        }
         }
     }
 }

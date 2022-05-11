@@ -12,7 +12,15 @@ pipeline {
             }    
             steps {
             sh 'cat README.md'
+            }
         }
+        stage ('for PR') {
+            when {
+                branch 'PR*'
+            }
+            steps {
+                echo 'this is only for PRs'
+            }
         }
     }
 }

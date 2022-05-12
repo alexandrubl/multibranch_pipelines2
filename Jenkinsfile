@@ -27,7 +27,7 @@ pipeline {
             }
             steps {
                 sh 'terraform apply --auto-approve'
-                sleep time: 200, unit: 'SECONDS'
+                sleep time: 220, unit: 'SECONDS'
             }
         }
         stage ('Destroy env') {

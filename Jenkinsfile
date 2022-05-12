@@ -26,7 +26,11 @@ pipeline {
                 branch 'main'
             }
             steps {
-                sh 'terraform apply --auto-approve'
+                sh '''
+                terraform init
+                terraform plan
+                terraform apply --auto-approve
+                '''
                 sleep time: 220, unit: 'SECONDS'
             }
         }
@@ -35,7 +39,11 @@ pipeline {
                 branch 'main'
             }
             steps {
-                sh 'terraform destroy --auto-approve'
+                sh '''
+                terraform init
+                terraform plan
+                terraform destroy --auto-approve
+                '''
             }
         }
     }

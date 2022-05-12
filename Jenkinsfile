@@ -15,7 +15,10 @@ pipeline {
                 branch "test"
             }    
             steps {
-            sh 'terraform plan'
+            sh '''
+            terraform init
+            terraform plan
+            '''
             }
         }
         stage ('Deploy env') {

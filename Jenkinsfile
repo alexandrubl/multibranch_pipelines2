@@ -6,7 +6,7 @@ pipeline {
                 branch 'release*'
             }
             steps {
-
+                echo 'testing the code'
                 sh 'terraform init'
             }
         }
@@ -15,7 +15,10 @@ pipeline {
                 branch "test"
             }    
             steps {
-            sh 'terraform plan'
+            sh '''
+            terraform init
+            terraform plan
+            '''
             }
         }
         stage ('Deploy env') {
@@ -24,7 +27,7 @@ pipeline {
             }
             steps {
                 sh 'terraform apply --auto-approve'
-                sleep time: 200, unit: 'SECONDS'
+                sleep time: 220, unit: 'SECONDS'
             }
         }
         stage ('Destroy env') {

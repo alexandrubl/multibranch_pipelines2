@@ -6,7 +6,7 @@ pipeline {
                 branch 'release*'
             }
             steps {
-
+                echo 'testing the code'
                 sh 'terraform init'
             }
         }

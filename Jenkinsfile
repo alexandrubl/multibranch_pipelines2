@@ -1,6 +1,3 @@
-#String gitCredentials = "GIT_credentials"
-#String branchName = "release*"
-#String repoUrl = "https://github.com/alexandrublg/exercises.git"
 pipeline {
     agent {label 'mac_node'}
     stages {
